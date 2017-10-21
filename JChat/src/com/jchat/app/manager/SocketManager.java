@@ -27,15 +27,16 @@ public class SocketManager extends Thread {
 			// Envia informações - Parametro boolean, para dizer se é autoflush ou não,
 			// neste caso sim
 			PrintWriter writer = new PrintWriter(client.getOutputStream(), true);
-			
+
 			// Envia informações
 			writer.println("Insira seu nome");
 			String msg = reader.readLine();
 			this.nomeClient = msg;
+			writer.println("Olá " + nomeClient);
 
 			while (true) {
 				msg = reader.readLine();
-				writer.print("Você disse: " + msg);
+				writer.println("Você disse: " + msg);
 			}
 
 		} catch (IOException e) {
